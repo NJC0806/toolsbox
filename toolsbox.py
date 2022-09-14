@@ -1,6 +1,6 @@
 import sys
 import tabwidget
-import bilbili
+import bilibili
 import cloudmusic
 import os
 from PyQt5 import QtWidgets
@@ -14,13 +14,15 @@ if __name__ == '__main__':
         os.mkdir('./download', 755)
 
     w = tabwidget.TabWidget()
-    #创建一个Bilbil下载栏
-    b = bilbili.Bilibili(w)
+    #创建一个Bilibili下载栏
+    b = bilibili.Bilibili(w)
+    # 创建一个网易云音乐下载栏
     c = cloudmusic.CloudMusic(w)
+
+    #设置窗口相关属性
     w.setWindowTitle("toolsbox")
     w.setWindowIcon(QIcon('./icons/红色蜘蛛.png'))
-    w.setFixedSize(1200, 700)
+    w.resize(1200, 700)
     w.show()
-
     sys.exit(app.exec_())
 
