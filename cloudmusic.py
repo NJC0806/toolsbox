@@ -1,10 +1,10 @@
-import time
 import os
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtGui import QFont
+import re
 import _thread
 import requests
-import re
+from PyQt5 import QtWidgets, QtGui
+from PyQt5.QtGui import QFont
+
 '''
 布局介绍
 horizontalLayout_1 用于水平布局网易云音乐链接lable和用于输入url的line eidt;
@@ -14,12 +14,12 @@ horizontalLayout_3 创建一个水平布局，用于水平分布所有已经经�
 verticalLayout_2   最后创建一个垂直分布，目的是为了让bilibili_tab全屏分布到QtWidget中
 '''
 class CloudMusic:
-    #创建网易云音乐下载栏UI
+    # 创建网易云音乐下载栏UI
     def __init__(self, tabwidget):
-        #创建保持视频的文件夹
+        # 创建保持音乐的文件夹
         if not os.path.exists('download/music'):
             os.mkdir('./download/music', 755)
-        # 创建一个bilibili的tabwidget
+        # 创建一个网易云的tabwidget
         self.cloudmusic_tab = QtWidgets.QWidget()
         self.cloudmusic_tab.setObjectName("cloudmusic_tab")
 
@@ -86,7 +86,7 @@ class CloudMusic:
 
         self.save_path = 'download\\music\\'
 
-        tabwidget.addTab(self.cloudmusic_tab, '网易云音乐下载')
+        tabwidget.addTab(self.cloudmusic_tab, QtGui.QIcon('xx.png'), '网易云音乐下载')
 
     def creat_thread(self):
         self.text_edit.setText('开始输出日志')

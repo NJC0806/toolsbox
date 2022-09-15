@@ -1,12 +1,13 @@
 import re
-import requests
-import json
-import subprocess
-import time
 import os
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtGui import QFont
+import time
+import json
 import _thread
+import requests
+import subprocess
+from PyQt5 import QtWidgets, QtGui
+from PyQt5.QtGui import QFont
+
 '''
 布局介绍
 horizontalLayout_1 用于水平布局B站视频链接lable 和用于输入url的line eidt;
@@ -16,13 +17,13 @@ horizontalLayout_3 创建一个水平布局，用于水平分布所有已经经�
 verticalLayout_2   最后创建一个垂直分布，目的是为了让bilibili_tab全屏分布到QtWidget中
 '''
 class Bilibili:
-    #创建B站视频下载栏UI
+    # 创建B站视频下载栏UI
     def __init__(self, tabwidget):
-        #创建保持视频的文件夹
+        # 创建保持视频的文件夹
         if not os.path.exists('download/video'):
             os.mkdir('./download/video', 755)
 
-        #创建一个bilibili的tabwidget
+        # 创建一个bilibili的tabwidget
         self.bilibili_tab = QtWidgets.QWidget()
         self.bilibili_tab.setObjectName("bilibili_tab")
 
@@ -90,7 +91,7 @@ class Bilibili:
 
         self.save_path = 'download\\video\\'
 
-        tabwidget.addTab(self.bilibili_tab, "B站视频下载")
+        tabwidget.addTab(self.bilibili_tab, QtGui.QIcon('xx.png'), "B站视频下载")
 
     def creat_thread(self):
         self.text_edit.setText('开始输出日志')

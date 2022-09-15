@@ -1,5 +1,5 @@
-from PyQt5 import QtWidgets
 from PyQt5 import QtCore
+from PyQt5 import QtWidgets
 from PyQt5.QtGui import QFont
 
 #自定义tabwidget表头的方向和文字方向
@@ -31,6 +31,17 @@ class TabBar(QtWidgets.QTabBar):
             painter.drawControl(QtWidgets.QStyle.CE_TabBarTabLabel, opt)
             painter.restore()
 
+#用于设置文字的方向
+class ProxyStyle(QtWidgets.QProxyStyle):
+    def drawControl(self, element, opt, painter, widget):
+        if element == QtWidgets.QStyle.CE_TabBarTabLabel:
+            ic = self.pixelMetric(QtWidgets.QStyle.PM_TabBarIconSize)
+            r = QtCore.QRect(opt.rect)
+            w =  0 if opt.icon.isNull() else opt.rect.width() + self.pixelMetric(QtWidgets.QStyle.PM_TabBarIconSize)
+            r.setHeight(opt.fontMetrics.width(opt.text) + w)
+            r.moveBottom(opt.rect.bottom())
+            opt.rect = r
+        QtWidgets.QProxyStyle.drawControl(self, element, opt, painter, widget)
 
 class TabWidget(QtWidgets.QTabWidget):
     def __init__(self, *args, **kwargs):
