@@ -4,6 +4,7 @@ import tabwidget
 import bilibili
 import cloudmusic
 import pdf2word
+import devicemanager
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
 
@@ -16,11 +17,12 @@ if __name__ == '__main__':
         os.mkdir('./download', 755)
 
     w = tabwidget.TabWidget()
+
+    # 创建获取设备管理器的工具栏
+    d = devicemanager.DeviceManager(w)
     # 创建pdf转word功能栏
     p2w = pdf2word.Pdf2Word(w)
-
     # 创建一个Bilibili下载栏
-
     b = bilibili.Bilibili(w)
     # 创建一个网易云音乐下载栏
     c = cloudmusic.CloudMusic(w)

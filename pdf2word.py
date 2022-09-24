@@ -113,7 +113,7 @@ class Pdf2Word:
         for file_path in self.files_path:
             path, name = os.path.split(file_path)
             self.out_log(f'《{name}》')
-        self.out_log('============================================================================')
+        self.out_log(' ')
         for file_path in self.files_path:
             path, name = os.path.split(file_path)
             self.out_log(f'开始转换《{name}》,请耐心等待！')
@@ -125,7 +125,7 @@ class Pdf2Word:
             converter.close()
             self.out_log('转换完成！存放路径如下(源文件夹下):')
             self.out_log(f'{doc_file}')
-            self.out_log('============================================================================')
+            self.out_log(' ')
         self.out_log('全部文件已转换完成！')
         self.start_button.setEnabled(True)
 
