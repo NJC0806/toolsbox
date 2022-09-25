@@ -50,7 +50,7 @@ class Bilibili:
         self.start_button = QtWidgets.QPushButton(self.bilibili_tab)
         self.start_button.setObjectName("bilibili_start_button")
         self.start_button.setText("开始下载")
-        self.start_button.clicked.connect(self.creat_thread)
+        self.start_button.clicked.connect(self.create_thread)
 
         # 创建水平布局用于管理开始下载按钮以及添加弹簧
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
@@ -93,7 +93,7 @@ class Bilibili:
 
         tabwidget.addTab(self.bilibili_tab, QtGui.QIcon('xx.png'), "B站视频下载")
 
-    def creat_thread(self):
+    def create_thread(self):
         self.text_edit.setText('开始输出日志')
         try:
             _thread.start_new_thread(self.download , ('download', 2,))

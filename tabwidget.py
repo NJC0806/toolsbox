@@ -48,5 +48,6 @@ class TabWidget(QtWidgets.QTabWidget):
         QtWidgets.QTabWidget.__init__(self, *args, **kwargs)
         self.setTabBar(TabBar(self))
         # 设置字体（字体，字号，颜色）
-        self.setFont(QFont('宋体', 14))
+        self.setFont(QFont('Times new roman', 14))
+
         self.setTabPosition(QtWidgets.QTabWidget.West)
