@@ -5,6 +5,7 @@ import bilibili
 import cloudmusic
 import pdf2word
 import csdn
+import fakescreen
 import devicemanager
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
@@ -19,6 +20,8 @@ if __name__ == '__main__':
 
     w = tabwidget.TabWidget()
 
+    # 创建一个虚拟显示屏
+    fs = fakescreen.FakeScreen(w)
     # 创建CSDN下载栏
     csdn = csdn.CSDN(w)
     # 创建获取设备管理器的工具栏
